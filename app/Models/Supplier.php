@@ -2,18 +2,50 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Supplier
+ *
+ * @property $id
+ * @property $name
+ * @property $ruc
+ * @property $address
+ * @property $phone
+ * @property $created_at
+ * @property $updated_at
+ *
+ * @property PurchaseOrder[] $purchaseOrders
+ * @package App
+ * @mixin \Illuminate\Database\Eloquent\Builder
+ */
 class Supplier extends Model
 {
-    use HasFactory;
+    
+    static $rules = [
+		'name' => 'required',
+		'ruc' => 'required',
+		'address' => 'required',
+		'phone' => 'required',
+    ];
 
-    protected $fillable = ['name', 'ruc', 'address', 'phone'];
+    protected $perPage = 20;
+
+    /**
+     * Attributes that should be mass-assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['name','ruc','address','phone'];
 
 
-    public function purchases()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function purchaseOrders()
     {
-        return $this->hasMany(Purchase::class);
+        return $this->hasMany('App\Models\PurchaseOrder', 'supplier_id', 'id');
     }
+    
+
 }

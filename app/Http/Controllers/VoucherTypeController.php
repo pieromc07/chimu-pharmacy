@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\VoucherType;
 use Illuminate\Http\Request;
 
+/**
+ * Class VoucherTypeController
+ * @package App\Http\Controllers
+ */
 class VoucherTypeController extends Controller
 {
     /**
@@ -14,7 +18,10 @@ class VoucherTypeController extends Controller
      */
     public function index()
     {
-        //
+        $voucherTypes = VoucherType::paginate();
+
+        return view('voucher-type.index', compact('voucherTypes'))
+            ->with('i', (request()->input('page', 1) - 1) * $voucherTypes->perPage());
     }
 
     /**
@@ -24,62 +31,79 @@ class VoucherTypeController extends Controller
      */
     public function create()
     {
-        //
+        $voucherType = new VoucherType();
+        return view('voucher-type.create', compact('voucherType'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        request()->validate(VoucherType::$rules);
+
+        $voucherType = VoucherType::create($request->all());
+
+        return redirect()->route('voucher-types.index')
+            ->with('success', 'VoucherType created successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\VoucherType  $voucherType
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(VoucherType $voucherType)
+    public function show($id)
     {
-        //
+        $voucherType = VoucherType::find($id);
+
+        return view('voucher-type.show', compact('voucherType'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\VoucherType  $voucherType
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(VoucherType $voucherType)
+    public function edit($id)
     {
-        //
+        $voucherType = VoucherType::find($id);
+
+        return view('voucher-type.edit', compact('voucherType'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\VoucherType  $voucherType
+     * @param  \Illuminate\Http\Request $request
+     * @param  VoucherType $voucherType
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, VoucherType $voucherType)
     {
-        //
+        request()->validate(VoucherType::$rules);
+
+        $voucherType->update($request->all());
+
+        return redirect()->route('voucher-types.index')
+            ->with('success', 'VoucherType updated successfully');
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\VoucherType  $voucherType
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
-    public function destroy(VoucherType $voucherType)
+    public function destroy($id)
     {
-        //
+        $voucherType = VoucherType::find($id)->delete();
+
+        return redirect()->route('voucher-types.index')
+            ->with('success', 'VoucherType deleted successfully');
     }
 }

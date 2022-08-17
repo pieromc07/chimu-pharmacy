@@ -268,96 +268,145 @@ return [
     'menu' => [
         // Navbar items:
         [
-            'type'         => 'navbar-search',
-            'text'         => 'search',
+            'type'         => 'fullscreen-widget',
             'topnav_right' => true,
         ],
         [
-            'type'         => 'fullscreen-widget',
+            'type'         => 'darkmode-widget',
             'topnav_right' => true,
         ],
 
         // Sidebar items:
         [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ],
-        [
-            'text' => 'blog',
+            'text' => 'Chimu Farmacia',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+           'text' => 'Dashboard',
+            'url'  => '/dashboard',
+            'icon' => 'fas fa-tachometer-alt',
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
+            'text'    => 'Productos',
+            'icon'    => 'fas fa-box',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Lista de Productos',
+                    'url'  => '/products',
                 ],
                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
+                    'text'    => 'Crear Producto',
+                    'url'     => '/products/create',
+
+                ],
+                [
+                    'text'  => 'Presentaciones',
+                    'icon'  => 'fas fa-list',
                     'submenu' => [
                         [
-                            'text' => 'level_two',
-                            'url'  => '#',
+                            'text' => 'Lista de Presentaciones',
+                            'url'  => '/filings',
                         ],
                         [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
+                            'text'    => 'Crear Presentacion',
+                            'url'     => '/filings/create',
                         ],
                     ],
+                ]
+            ],
+
+
+        ],
+        [
+            'text'    => 'Categorias',
+            'icon'    => 'fas fa-list',
+            'submenu' => [
+                [
+                    'text' => 'Lista de Categorias',
+                    'url'  => '/categories',
                 ],
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
+                    'text'    => 'Crear Categoria',
+                    'url'     => '/categories/create',
+
+                ]
             ],
         ],
-        ['header' => 'labels'],
         [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
+            'text'    => 'Clientes',
+            'icon'    => 'fas fa-users',
+            'submenu' => [
+                [
+                    'text' => 'Lista de Clientes',
+                    'url'  => '/customers',
+                ],
+                [
+                    'text'    => 'Crear Cliente',
+                    'url'     => '/customers/create',
+
+                ]
+            ],
         ],
         [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
+            'text'   => 'Proveedores',
+            'icon'   => 'fas fa-truck',
+            'submenu' => [
+                [
+                    'text' => 'Lista de Proveedores',
+                    'url'  => '/suppliers',
+                ],
+                [
+                    'text'    => 'Crear Proveedor',
+                    'url'     => '/suppliers/create',
+
+                ]
+            ],
         ],
         [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
+            'text' => 'Empleados',
+            'icon' => 'fas fa-user-tie',
+            'submenu' => [
+                [
+                    'text' => 'Lista de Empleados',
+                    'url'  => '/employees',
+                ],
+                [
+                    'text'    => 'Crear Empleado',
+                    'url'     => '/employees/create',
+
+                ]
+            ],
+        ],
+        [
+            'text' => 'Ventas',
+            'icon' => 'fas fa-shopping-cart',
+            'submenu' => [
+                [
+                    'text' => 'Lista de Ventas',
+                    'url'  => '/tickets',
+                ],
+                [
+                    'text'    => 'Crear Venta',
+                    'url'     => '/tickets/create',
+
+                ]
+            ],
+        ],
+        [
+            'text' => 'Compras',
+            'icon' => 'fas fa-shopping-cart',
+            'submenu' => [
+                [
+                    'text' => 'Lista de Compras',
+                    'url'  => '/purchase-orders',
+                ],
+                [
+                    'text'    => 'Crear Compra',
+                    'url'     => '/purchase-orders/create',
+
+                ]
+            ],
         ],
     ],
 
