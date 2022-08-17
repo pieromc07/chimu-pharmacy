@@ -16,10 +16,15 @@ class User extends Authenticatable
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var array
      */
     protected $fillable = [
-         'username', 'level','password', 'is_active'
+        'level', 'username', 'password', 'is_active',
     ];
 
+ // hasOne employee
+    public function employee()
+    {
+        return $this->hasOne(Employee::class);
+    }
 }
