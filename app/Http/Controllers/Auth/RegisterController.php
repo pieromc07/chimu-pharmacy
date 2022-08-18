@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -51,11 +52,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'employee_id' => ['required'],
             'level' => ['required'],
-            'username' => ['required', 'string', 'max:255'],
+            'username' => ['required', 'string', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'is_active' => ['required'],
         ]);
     }
 
@@ -68,11 +67,10 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'employee_id' => $data['employee_id'],
             'level' => $data['level'],
-            'username' => $data['name'],
+            'username' => $data['username'],
             'password' => Hash::make($data['password']),
-            'is_active' => $data['is_active'],
+            'is_active' => true,
         ]);
     }
 
@@ -83,7 +81,22 @@ class RegisterController extends Controller
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\JsonResponse
      */
     public function register(Request $request){
-        return $request->all();
+        $this->validator($request->all())->validate();
+
+        $user = $this->create($request->all());
+
+        $user->employees()->create([
+            'full_name' => null,
+            'dni' => null,
+            'workstation' => $request->level,
+            'age' => null,
+            'contract_start' => null,
+            'user_id' => $user->id
+        ]);
+
+        // login the user
+
+        return redirect()->route('home');
     }
 
 }
