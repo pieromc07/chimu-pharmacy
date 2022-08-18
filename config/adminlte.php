@@ -313,56 +313,56 @@ return [
                             'url'     => '/filings/create',
                         ],
                     ],
-                ]
-            ],
-
-
-        ],
-        [
-            'text'    => 'Categorias',
-            'icon'    => 'fas fa-list',
-            'submenu' => [
-                [
-                    'text' => 'Lista de Categorias',
-                    'url'  => '/categories',
                 ],
                 [
-                    'text'    => 'Crear Categoria',
-                    'url'     => '/categories/create',
+                    'text'    => 'Categorias',
+                    'icon'    => 'fas fa-list',
+                    'submenu' => [
+                        [
+                            'text' => 'Lista de Categorias',
+                            'url'  => '/categories',
+                        ],
+                        [
+                            'text'    => 'Crear Categoria',
+                            'url'     => '/categories/create',
 
-                ]
-            ],
-        ],
-        [
-            'text'    => 'Clientes',
-            'icon'    => 'fas fa-users',
-            'submenu' => [
-                [
-                    'text' => 'Lista de Clientes',
-                    'url'  => '/customers',
+                        ]
+                    ],
                 ],
-                [
-                    'text'    => 'Crear Cliente',
-                    'url'     => '/customers/create',
-
-                ]
             ],
-        ],
-        [
-            'text'   => 'Proveedores',
-            'icon'   => 'fas fa-truck',
-            'submenu' => [
-                [
-                    'text' => 'Lista de Proveedores',
-                    'url'  => '/suppliers',
-                ],
-                [
-                    'text'    => 'Crear Proveedor',
-                    'url'     => '/suppliers/create',
 
-                ]
-            ],
+
         ],
+        // [
+        //     'text'    => 'Clientes',
+        //     'icon'    => 'fas fa-users',
+        //     'submenu' => [
+        //         [
+        //             'text' => 'Lista de Clientes',
+        //             'url'  => '/customers',
+        //         ],
+        //         [
+        //             'text'    => 'Crear Cliente',
+        //             'url'     => '/customers/create',
+
+        //         ]
+        //     ],
+        // ],
+        // [
+        //     'text'   => 'Proveedores',
+        //     'icon'   => 'fas fa-truck',
+        //     'submenu' => [
+        //         [
+        //             'text' => 'Lista de Proveedores',
+        //             'url'  => '/suppliers',
+        //         ],
+        //         [
+        //             'text'    => 'Crear Proveedor',
+        //             'url'     => '/suppliers/create',
+
+        //         ]
+        //     ],
+        // ],
         [
             'text' => 'Empleados',
             'icon' => 'fas fa-user-tie',
@@ -393,21 +393,21 @@ return [
                 ]
             ],
         ],
-        [
-            'text' => 'Compras',
-            'icon' => 'fas fa-shopping-cart',
-            'submenu' => [
-                [
-                    'text' => 'Lista de Compras',
-                    'url'  => '/purchase-orders',
-                ],
-                [
-                    'text'    => 'Crear Compra',
-                    'url'     => '/purchase-orders/create',
+        // [
+        //     'text' => 'Compras',
+        //     'icon' => 'fas fa-shopping-cart',
+        //     'submenu' => [
+        //         [
+        //             'text' => 'Lista de Compras',
+        //             'url'  => '/purchase-orders',
+        //         ],
+        //         [
+        //             'text'    => 'Crear Compra',
+        //             'url'     => '/purchase-orders/create',
 
-                ]
-            ],
-        ],
+        //         ]
+        //     ],
+        // ],
     ],
 
     /*

@@ -2,10 +2,6 @@
 
 @section('title', 'Create Customer')
 
-@section('content_header')
-    <h1>Create Customer</h1>
-@stop
-
 @section('content')
     <section class="content container-fluid">
         <div class="row">

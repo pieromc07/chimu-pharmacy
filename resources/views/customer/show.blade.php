@@ -2,11 +2,6 @@
 
 @section('title', 'Show Customer')
 
-
-@section('content_header')
-    <h1>{{ $customer->full_name ?? 'Show Customer' }}</h1>
-@stop
-
 @section('content')
     <section class="content container-fluid">
         <div class="row">
@@ -24,28 +19,8 @@
                     <div class="card-body">
 
                         <div class="form-group">
-                            <strong>Full Name:</strong>
-                            {{ $customer->full_name }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Address:</strong>
-                            {{ $customer->address }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Gender:</strong>
-                            {{ $customer->gender }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Phone:</strong>
-                            {{ $customer->phone }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Dni:</strong>
-                            {{ $customer->dni }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Ruc:</strong>
-                            {{ $customer->ruc }}
+                            <strong>Document:</strong>
+                            {{ $customer->document }}
                         </div>
 
                     </div>
@@ -54,3 +29,7 @@
         </div>
     </section>
 @endsection
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop

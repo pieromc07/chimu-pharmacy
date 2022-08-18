@@ -73,12 +73,12 @@ class LoginController extends Controller
             if ($user) {
                 if ($this->checkPassword($request->password, $user)) {
                     if ($user->is_active) {
-                        if (Auth::attempt(['username' => $user->username, 'password' => $request->password])()) {
-                            return redirect()->intended('/');
+                        if (Auth::attempt(['username' => $user->username, 'password' => $request->password])) {
+                            return redirect()->route('home');
                         } else {
                             return redirect()->back()->withErrors(['username' => 'Username or password is incorrect'])->withInput();
                         }
-                        return redirect()->intended('/');
+                        return redirect()->route('home');
                     } else {
                         return redirect()->back()->withErrors(['username' => 'User is not active'])->withInput();
                     }

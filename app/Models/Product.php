@@ -27,7 +27,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Product extends Model
 {
-    
+
     static $rules = [
 		'name' => 'required',
 		'sale_price' => 'required',
@@ -55,7 +55,7 @@ class Product extends Model
     {
         return $this->hasOne('App\Models\Category', 'id', 'category_id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -63,7 +63,7 @@ class Product extends Model
     {
         return $this->hasOne('App\Models\Filing', 'id', 'filing_id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -71,7 +71,7 @@ class Product extends Model
     {
         return $this->hasMany('App\Models\PurchaseOrderDetail', 'product_id', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -79,6 +79,6 @@ class Product extends Model
     {
         return $this->hasMany('App\Models\TicketDetail', 'product_id', 'id');
     }
-    
+
 
 }

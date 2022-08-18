@@ -22,7 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TicketDetail extends Model
 {
-    
+
     static $rules = [
 		'ticket_id' => 'required',
 		'product_id' => 'required',
@@ -47,7 +47,7 @@ class TicketDetail extends Model
     {
         return $this->hasOne('App\Models\Product', 'id', 'product_id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -55,6 +55,6 @@ class TicketDetail extends Model
     {
         return $this->hasOne('App\Models\Ticket', 'id', 'ticket_id');
     }
-    
+
 
 }

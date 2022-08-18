@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Filing;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -32,7 +34,9 @@ class ProductController extends Controller
     public function create()
     {
         $product = new Product();
-        return view('product.create', compact('product'));
+        $categories = Category::pluck('category', 'id');
+        $filings = Filing::pluck('filing', 'id');
+        return view('product.create', compact('product', 'categories', 'filings'));
     }
 
     /**
@@ -43,6 +47,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+
         request()->validate(Product::$rules);
 
         $product = Product::create($request->all());
@@ -73,8 +78,9 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
-
-        return view('product.edit', compact('product'));
+        $categories = Category::pluck('category', 'id');
+        $filings = Filing::pluck('filing', 'id');
+        return view('product.edit', compact('product', 'categories', 'filings'));
     }
 
     /**

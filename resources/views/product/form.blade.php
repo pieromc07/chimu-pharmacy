@@ -1,6 +1,6 @@
 <div class="box box-info padding-1">
     <div class="box-body">
-        
+
         <div class="form-group">
             {{ Form::label('name') }}
             {{ Form::text('name', $product->name, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Name']) }}
@@ -18,7 +18,7 @@
         </div>
         <div class="form-group">
             {{ Form::label('expiration_date') }}
-            {{ Form::text('expiration_date', $product->expiration_date, ['class' => 'form-control' . ($errors->has('expiration_date') ? ' is-invalid' : ''), 'placeholder' => 'Expiration Date']) }}
+            {{ Form::date('expiration_date', $product->expiration_date, ['class' => 'form-control' . ($errors->has('expiration_date') ? ' is-invalid' : ''), 'placeholder' => 'Expiration Date']) }}
             {!! $errors->first('expiration_date', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
@@ -27,16 +27,15 @@
             {!! $errors->first('stock', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('category_id') }}
-            {{ Form::text('category_id', $product->category_id, ['class' => 'form-control' . ($errors->has('category_id') ? ' is-invalid' : ''), 'placeholder' => 'Category Id']) }}
+            {{ Form::label('category_id', 'Category') }}
+            {{ Form::select('category_id', $categories, null, ['class' => 'form-control' . ($errors->has('category_id') ? ' is-invalid' : '')]) }}
             {!! $errors->first('category_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('filing_id') }}
-            {{ Form::text('filing_id', $product->filing_id, ['class' => 'form-control' . ($errors->has('filing_id') ? ' is-invalid' : ''), 'placeholder' => 'Filing Id']) }}
+            {{ Form::label('filing_id', 'Filing') }}
+            {{ Form::select('filing_id', $filings, null, ['class' => 'form-control' . ($errors->has('filing_id') ? ' is-invalid' : '')]) }}
             {!! $errors->first('filing_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-
     </div>
     <div class="box-footer mt20">
         <button type="submit" class="btn btn-primary">Submit</button>

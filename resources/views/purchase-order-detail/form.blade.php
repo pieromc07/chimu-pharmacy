@@ -1,6 +1,6 @@
 <div class="box box-info padding-1">
     <div class="box-body">
-        
+
         <div class="form-group">
             {{ Form::label('purchase_order_id') }}
             {{ Form::text('purchase_order_id', $purchaseOrderDetail->purchase_order_id, ['class' => 'form-control' . ($errors->has('purchase_order_id') ? ' is-invalid' : ''), 'placeholder' => 'Purchase Order Id']) }}

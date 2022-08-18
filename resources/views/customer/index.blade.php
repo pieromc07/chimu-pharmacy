@@ -4,7 +4,7 @@
 
 @section('content_header')
     <h1>Customers</h1>
-@stop
+@endsection
 
 @section('content')
     <div class="container-fluid">
@@ -38,12 +38,7 @@
                                     <tr>
                                         <th>No</th>
 
-										<th>Full Name</th>
-										<th>Address</th>
-										<th>Gender</th>
-										<th>Phone</th>
-										<th>Dni</th>
-										<th>Ruc</th>
+										<th>Document</th>
 
                                         <th></th>
                                     </tr>
@@ -53,12 +48,7 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
 
-											<td>{{ $customer->full_name }}</td>
-											<td>{{ $customer->address }}</td>
-											<td>{{ $customer->gender }}</td>
-											<td>{{ $customer->phone }}</td>
-											<td>{{ $customer->dni }}</td>
-											<td>{{ $customer->ruc }}</td>
+											<td>{{ $customer->document }}</td>
 
                                             <td>
                                                 <form action="{{ route('customers.destroy',$customer->id) }}" method="POST">

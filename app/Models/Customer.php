@@ -8,12 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  * Class Customer
  *
  * @property $id
- * @property $full_name
- * @property $address
- * @property $gender
- * @property $phone
- * @property $dni
- * @property $ruc
+ * @property $document
  * @property $created_at
  * @property $updated_at
  *
@@ -23,11 +18,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Customer extends Model
 {
-    
+
     static $rules = [
-		'full_name' => 'required',
-		'address' => 'required',
-		'gender' => 'required',
+		'document' => 'required',
     ];
 
     protected $perPage = 20;
@@ -37,7 +30,7 @@ class Customer extends Model
      *
      * @var array
      */
-    protected $fillable = ['full_name','address','gender','phone','dni','ruc'];
+    protected $fillable = ['document'];
 
 
     /**
@@ -47,6 +40,6 @@ class Customer extends Model
     {
         return $this->hasMany('App\Models\Ticket', 'customer_id', 'id');
     }
-    
+
 
 }
